@@ -4,6 +4,9 @@
 *.o
 *.obj
 
+# test files
+test*
+
 # Precompiled Headers
 *.gch
 *.pch
