@@ -2,7 +2,7 @@
 #include "socket.h"
 using namespace std;
 
-extern const char* SERV_PORT;
+extern const int SERV_PORT;
 extern const int MAXLINE;
 
 void str_echo(int sockfd){
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]){
 	pid_t childpid;
 	for(;;){
 		socklen_t clilen;
-		int connsock = Accept(listensock, (sockaddr *) cliaddr, &clilen);
+		int connsock = Accept(listensock, (sockaddr *) &cliaddr, &clilen);
 		if( (childpid = fork()) == 0){
 			Close(listensock);
 			str_echo(connsock);
